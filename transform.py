@@ -17,7 +17,6 @@ def datilize(ifile, properties):
                 "Cantidad", "Tipo IVA", "Informacion Adicional"]]
     invoice_seq = properties["init_sequence"]
     reader = csv.reader(StringIO.StringIO(ifile))
-    print reader
 
     for row in reader:
         if rownum == 0:
