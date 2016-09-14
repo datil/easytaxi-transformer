@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>EasyTaxi Transformer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+         /* Sticky footer styles
+            -------------------------------------------------- */
+         html {
+             position: relative;
+             min-height: 100%;
+         }
+         body {
+             /* Margin bottom by footer height */
+             margin-bottom: 60px;
+         }
+         .footer {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             /* Set the fixed height of the footer here */
+             height: 60px;
+             background-color: #f5f5f5;
+         }
+
+
+         /* Custom page CSS
+            -------------------------------------------------- */
+         /* Not required for template or sticky footer method. */
+
+         .container {
+             width: auto;
+             max-width: 800px;
+             padding: 0 15px;
+         }
+         .container .text-muted {
+             margin: 20px 0;
+         }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>EasyTaxi Transformer</h1>
+            </div>
+            <p class="lead">A continuaci&oacute;n sube el archivo generado por EasyTaxi y presiona el bot&oacute;n "Covertir". Como resultado podr&aacute;s descargar el archivo convertido al formato que requiere D&aacute;til.</p>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="file">Archivo CSV EasyTaxi</label>
+                    <div class="col-sm-9">
+                        <input type="file" name="file" id="file">
+                        <p class="help-block">El archivo debe tener formato CSV (texto delimitado por comas) de acuerdo al siguiente <a href="https://s3-us-west-2.amazonaws.com/easytaxi/ejemplo.csv">ejemplo</a>.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="init_sequence">Secuencia inicial de facturaci&oacute;n</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="init_sequence" id="init_sequence" placeholder="1">
+                        <p class="help-block">Las secuencias de las facturas se generar&aacute;n a partir del n&uacute;mero ingresado. Por favor, aseg&uacute;rate de usar una secuencia que est&eacute; libre. Puedes confirmarlo en tu cuenta <a href="https://app.datil.co" target="_blank">D&aacute;til</a></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="branch_code">C&oacute;digo de establecimiento</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="branch_code" id="product_code" placeholder="002">
+                        <p class="help-block">Ejemplo: 002</a></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="pos_code">C&oacute;digo de punto de emisi&oacute;n</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="pos_code" id="product_code" placeholder="002">
+                        <p class="help-block">Ejemplo: 002.</a></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="product_code">C&oacute;digo de producto</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="product_code" id="product_code" placeholder="001">
+                        <p class="help-block">Este c&oacute;digo ser&aacute; utilizado, por defecto, en los productos facturados.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="id_type">Tipo de identificaci&oacute;n</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="id_type" id="id_type">
+                            <option value="CEDULA">CEDULA</option>
+                        </select>
+                        <p class="help-block">Este tipo de identificaci&oacute;n ser&aacute; utilizado en todas las facturas.</p>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-lg center-block" value="Transformar">
+            </form>
+        </div>
+    </body>
+</html>
