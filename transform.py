@@ -10,7 +10,11 @@ def csv2string(data):
 
 def datilize(ifile, properties):
     rownum = 0
-    newlist = []
+    newlist = [["Codigo establecimiento", "Punto de emision", "Secuencia", "Fecha Emision", \
+                "Razon Social Comprador", "Identificacion Comprador", "Tipo Identificacion", \
+                "Email Comprador", "Direccion Comprador", "Telefono Comprador", "Codigo", \
+                "Codigo Auxiliar", "Descripcion", "Precio Unitario", "Descuento Unitario", \
+                "Cantidad", "Tipo IVA", "Informacion Adicional"]]
     invoice_seq = properties["init_sequence"]
     reader = csv.reader(StringIO.StringIO(ifile))
     print reader
@@ -23,18 +27,19 @@ def datilize(ifile, properties):
             newrow = [properties["branch_code"],
                       properties["pos_code"],
                       invoice_seq,
+                      properties["issue_date"],
                       row[0],
                       row[1],
                       properties["id_type"],
                       row[2],
                       properties["fixed_address"],
-                      properties["fixed_phone"],
-                      properties["product_code"],
-                      properties["product_aux_code"]]
+                      properties["fixed_phone"]]
             items = row[3:7]
             for index, item in enumerate(items):
                 if item:
                     newlist.append(newrow + \
+                                   [properties["product_codes"][index]] + \
+                                   [properties["product_aux_code"]] + \
                                    [headers[index]] + \
                                    [item] + \
                                    [0.00] + \

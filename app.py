@@ -21,7 +21,11 @@ def index():
                  "pos_code": request.form["pos_code"],
                  "fixed_address": "",
                  "fixed_phone": "",
-                 "product_code": request.form["product_code"],
+                 "issue_date": request.form["issue_date"],
+                 "product_codes": [request.form["product_code_01"],
+                                   request.form["product_code_02"],
+                                   request.form["product_code_03"],
+                                   request.form["product_code_04"]],
                  "product_aux_code": "",
                  "id_type": request.form["id_type"]}
         # check if the post request has the file part
