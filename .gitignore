@@ -1,0 +1,9 @@
+*.csv
+.DS_Store
+*.pyc
+/build/*
+# Python env stuff
+/bin/*
+/include/*
+/lib/*
+/tmp/*
